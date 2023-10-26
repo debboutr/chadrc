@@ -14,5 +14,4 @@ M.abc = {
     vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
   }
 }
-
 return M

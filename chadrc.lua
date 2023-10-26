@@ -1,14 +1,19 @@
 ---@type ChadrcConfig 
 local M = {}
-M.ui = {theme = 'catppuccin'}
-M.plugins = "custom.plugins"
 M.mappings = require "custom.mappings"
--- make the background transparent
--- vim.cmd[[highlight Normal ctermbg=NONE guibg=NONE]]
+M.plugins = "custom.plugins"
 
--- vim.api.nvim_create_autocmd({"BufWritePre"}, {
---   pattern = { "*.tsx" },
---   command = [[ %!prettier --stdin-filepath % ]],
--- })
+M.ui = {
+  transparency = true,
+  hl_override = {
+    LineNr = {
+      fg = "teal",
+    }
+  }
+}
+-- local nvimtree = require "plugins.configs.nvimtree"
+-- nvimtree.ui.confirm.remove = false
+
+
+vim.wo.relativenumber = true
 return M
-
