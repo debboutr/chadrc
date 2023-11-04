@@ -16,12 +16,13 @@ local plugins = {
       -- view = {
       --   side = "right",
       -- },
-      -- ui = {
-      --   confirm = {
-      --     remove = false,
-      --     trash = false,
-      --   },
-      -- },
+      ui = {
+        confirm = {
+          default_yes = true,
+          -- remove = false,
+          -- trash = false,
+        },
+      },
     },
   },
   {
@@ -51,6 +52,9 @@ local plugins = {
       ensure_installed = {
         "eslint-lsp",
         "prettier",
+        "black",
+        "pyright",
+        "isort",
         "typescript-language-server"
       }
     }

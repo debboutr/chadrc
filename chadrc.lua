@@ -4,16 +4,17 @@ M.mappings = require "custom.mappings"
 M.plugins = "custom.plugins"
 
 M.ui = {
-  transparency = true,
+  transparency = false,
   hl_override = {
     LineNr = {
       fg = "teal",
     }
   }
 }
--- local nvimtree = require "plugins.configs.nvimtree"
--- nvimtree.ui.confirm.remove = false
-
 
 vim.wo.relativenumber = true
+
+vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.loaded_python3_provider = nil
+
 return M
