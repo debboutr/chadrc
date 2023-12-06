@@ -1,5 +1,21 @@
 local plugins = {
-  { -- remove the confirmation that defaults to No!
+  {
+      "vimwiki/vimwiki",
+      lazy = false,
+      branch = "dev",
+      init = function()
+          vim.g.vimwiki_list = {
+              {
+                  -- template_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/vimwiki/autoload/",
+                  syntax = "default",
+                  ext = ".vimwiki",
+                  path = "~/vimwiki",
+              },
+          }
+          vim.g.vimwiki_global_ext = 0
+      end,
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     opts = {
       git = {
@@ -13,14 +29,9 @@ local plugins = {
           },
         },
       },
-      -- view = {
-      --   side = "right",
-      -- },
-      ui = {
+      ui = { -- remove the confirmation that defaults to No!
         confirm = {
           default_yes = true,
-          -- remove = false,
-          -- trash = false,
         },
       },
     },
@@ -72,6 +83,8 @@ local plugins = {
       ensure_installed = {
         -- defaults 
         "vim",
+        "markdown",
+        "markdown_inline",
         "lua",
 
         -- web dev 
