@@ -2,14 +2,13 @@ local M = {}
 M.tabufline = {
   n = {
     -- cycle through buffers
-    ["<leader>l"] = {
+    ["<leader>k"] = {
       function()
         require("nvchad.tabufline").tabuflineNext()
       end,
       "Goto next buffer",
     },
-
-    ["<leader>h"] = {
+    ["<leader>j"] = {
       function()
         require("nvchad.tabufline").tabuflinePrev()
       end,
@@ -23,24 +22,15 @@ M.disabled = {
     ["<S-tab>"] = "",
   }
 }
-M.abc = {
+M.addagio = {
   n = {
-    -- ["<leader>rt"] = {
-    --   function()
-    --     local asdf = vim.api.nvim_command_output("nmap <tab>")
-    --     -- print(vim.inspect(asdf))
-    --     -- print(type(asdf))
-    --     if (asdf == "\nNo mapping found")
-    --       then
-    --         print("...resetting <tab> keymap")
-    --         vim.keymap.set("n", "<tab>", require("nvchad.tabufline").tabuflineNext, {desc="Goto next buffer"})
-    --       else
-    --         print("...deleting <tab> keymap")
-    --         vim.keymap.del('n', '<tab>')
-    --     end
-    --   end,
-    --   "Toggle tab keymap",
-    -- },
+    ["<leader>co"] = {
+      function()
+        require("cmp").setup.buffer { enabled = false }
+        print(vim.inspect(require("cmp").setup.filetype()))
+      end,
+      "Disable completion for this buffer",
+    },
     ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "Find Keymaps" },
     ["<leader>rp"] = { "<cmd> silent %!prettier --stdin-filepath % <CR>", "Run prettier" },
     ["<leader>rl"] = { "<cmd>w<CR> <bar>:luafile %<CR>", "Run luafile" },
@@ -52,8 +42,8 @@ M.abc = {
     },
   },
   v = {
-    vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv"),
-    vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+    ["J"] = { ":m '>+1<CR>gv=gv", "Move visual selection down" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "Move visual selection down" }
   }
 }
 return M

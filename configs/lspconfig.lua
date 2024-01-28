@@ -3,13 +3,9 @@ local on_attach = config.on_attach
 local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
+local servers = {"html"}
 
-lspconfig.tsserver.setup {
+lspconfig.html.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  init_options = {
-    preferences = {
-      disableSuggestions = true,
-    }
-  }
 }

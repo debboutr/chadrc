@@ -1,4 +1,5 @@
 local plugins = {
+
   {
       "vimwiki/vimwiki",
       lazy = false,
@@ -15,6 +16,7 @@ local plugins = {
           vim.g.vimwiki_global_ext = 0
       end,
   },
+
   {
     "nvim-tree/nvim-tree.lua",
     opts = {
@@ -36,27 +38,18 @@ local plugins = {
       },
     },
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
-    config = function ()
-      require "custom.configs.null-ls"
-    end
-  },
+
   -- {
-  --   "mhartington/formatter.nvim",
-  --   event = "VeryLazy",
-  --   config = function ()
-  --     require "custom.configs.formatter"
+  --   "hrsh7th/nvim-cmp",
+  --   opts = function()
+  --     return {
+  --       performance = {
+  --         throttle = 200
+  --       }
+  --     }
   --   end
   -- },
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   event = "VeryLazy",
-  --   config = function ()
-  --     require "custom.configs.lint"
-  --   end
-  -- },
+  --
   {
     "williamboman/mason.nvim",
     opts = {
@@ -66,10 +59,12 @@ local plugins = {
         "black",
         "pyright",
         "isort",
+        "tailwindcss-language-server",
         "typescript-language-server"
       }
     }
   },
+
   {
     "neovim/nvim-lspconfig",
     config = function ()
@@ -77,6 +72,7 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -86,7 +82,6 @@ local plugins = {
         "markdown",
         "markdown_inline",
         "lua",
-
         -- web dev 
         "html",
         "css",
@@ -98,5 +93,6 @@ local plugins = {
       },
     },
   },
+
 }
 return plugins
